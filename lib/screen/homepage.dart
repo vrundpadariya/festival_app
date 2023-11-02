@@ -41,7 +41,7 @@ class _homescreenState extends State<homescreen> {
                     .map(
                       (e) => GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, "detail", arguments: e);
+                          Navigator.pushNamed(context, "p", arguments: e);
                         },
                         child: Container(
                           height: 150,
@@ -72,14 +72,28 @@ class _homescreenState extends State<homescreen> {
                     .map(
                       (e) => GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, "detail", arguments: e);
+                          Navigator.pushNamed(context, "p", arguments: e);
                         },
                         child: Container(
+                          alignment: Alignment.center,
                           height: 150,
                           width: 300,
                           margin: const EdgeInsets.all(15),
-                          color: Colors.red,
-                          child: Text("${e["categoryName"]}"),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                "${e['img']}",
+                              ),
+                            ),
+                          ),
+                          child: Text(
+                            "${e["categoryName"]}",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
                         ),
                       ),
                     )
@@ -103,7 +117,7 @@ class _homescreenState extends State<homescreen> {
                     .map(
                       (e) => GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, "detail", arguments: e);
+                          Navigator.pushNamed(context, "p", arguments: e);
                         },
                         child: Container(
                           height: 150,

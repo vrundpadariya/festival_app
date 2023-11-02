@@ -25,6 +25,8 @@ class _detailscreenState extends State<detailscreen> {
         children: [
           Expanded(
             child: Container(
+              height: 300,
+              width: 350,
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: global.bgColor,
@@ -36,7 +38,7 @@ class _detailscreenState extends State<detailscreen> {
                     height: 100,
                   ),
                   Text(
-                    "To shine your brightest light is to be who you truly are.",
+                    "${data['qoutes']}",
                     style: GoogleFonts.getFont(
                       global.fontFamily,
                     ).copyWith(
@@ -48,7 +50,7 @@ class _detailscreenState extends State<detailscreen> {
                     height: 10,
                   ),
                   Text(
-                    "  - Martin Luther ",
+                    " - ${data['author']}",
                     style: GoogleFonts.getFont(
                       global.fontFamily,
                     ).copyWith(

@@ -51,5 +51,9 @@ class global {
     "Eater",
   ];
 
-  static List<String> image = [""];
+  static List<String> image = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2UpiGzXZsqitpTMSgr_uFccjIcZtQUVNZHj0DlzTqNbGwQelbvoWtSuMzctnG92XgU38&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZNwkbmQzEFWHLYvA8PYTmLb4Q_tYhSLK82w&usqp=CAU",
+    ""
+  ];
 }
