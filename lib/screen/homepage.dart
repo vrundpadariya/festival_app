@@ -1,76 +1,123 @@
 import 'package:flutter/material.dart';
 
-class home extends StatefulWidget {
-  const home({super.key});
+import '../utiles/qoutes.dart';
+
+class homescreen extends StatefulWidget {
+  const homescreen({super.key});
 
   @override
-  State<home> createState() => _homeState();
+  State<homescreen> createState() => _homescreenState();
 }
 
-class _homeState extends State<home> {
+class _homescreenState extends State<homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Festival Qoutes",
+        appBar: AppBar(
+          title: const Text(
+            "Festival Post",
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          Text(
-            "diwali",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
+        body: Column(
+          children: [
+            const SizedBox(
+              width: 30,
             ),
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Container(
-                  height: 200,
-                  width: 400,
-                  margin: EdgeInsets.all(10),
-                  color: Colors.red,
-                  child: const Column(
-                    children: [
-                      Text(
-                        "Cheers to a new year and another chance for us to get it right",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
+            const Text(
+              "Upcoming festival",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: Globals.upcoming
+                    .map(
+                      (e) => GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, "detail", arguments: e);
+                        },
+                        child: Container(
+                          height: 150,
+                          width: 300,
+                          margin: const EdgeInsets.all(15),
+                          color: Colors.red,
+                          child: Text("${e["categoryName"]}"),
                         ),
                       ),
-                      Text(
-                        " - Oprah Winfrey",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
+                    )
+                    .toList(),
+              ),
+            ),
+            const Text(
+              "Festival templets",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: Globals.allqoutes
+                    .map(
+                      (e) => GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, "detail", arguments: e);
+                        },
+                        child: Container(
+                          height: 150,
+                          width: 300,
+                          margin: const EdgeInsets.all(15),
+                          color: Colors.red,
+                          child: Text("${e["categoryName"]}"),
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 200,
-                  width: 400,
-                  margin: EdgeInsets.all(10),
-                  color: Colors.blue,
-                ),
-                Container(
-                  height: 200,
-                  width: 400,
-                  margin: EdgeInsets.all(10),
-                  color: Colors.red,
-                ),
-              ],
+                    )
+                    .toList(),
+              ),
             ),
-          ),
-        ],
-      ),
-    );
+            const Text(
+              "Top picker",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: Globals.topicker
+                    .map(
+                      (e) => GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, "detail", arguments: e);
+                        },
+                        child: Container(
+                          height: 150,
+                          width: 300,
+                          margin: const EdgeInsets.all(15),
+                          color: Colors.red,
+                          child: Text("${e["categoryName"]}"),
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ),
+          ],
+        ));
   }
 }
