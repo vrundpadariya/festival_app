@@ -20,16 +20,34 @@ class _detailscreenState extends State<detailscreen> {
           "Qoutes",
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.share_outlined),
+          ),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.copy_rounded,
+              ))
+        ],
       ),
       body: Column(
         children: [
           Expanded(
+            flex: 1,
             child: Container(
               height: 300,
               width: 350,
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: global.bgColor,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                    global.bgImage,
+                  ),
+                ),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -38,7 +56,7 @@ class _detailscreenState extends State<detailscreen> {
                     height: 100,
                   ),
                   Text(
-                    "${data['qoutes']}",
+                    "${data['qoute']}",
                     style: GoogleFonts.getFont(
                       global.fontFamily,
                     ).copyWith(
@@ -62,8 +80,10 @@ class _detailscreenState extends State<detailscreen> {
               ),
             ),
           ),
-          SingleChildScrollView(
-            child: Expanded(
+          Expanded(
+            flex: 1,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
               child: Column(
                 children: [
                   const Text(
@@ -178,6 +198,33 @@ class _detailscreenState extends State<detailscreen> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: global.image
+                          .map(
+                            (e) => GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  global.bgImage = e;
+                                });
+                              },
+                              child: Container(
+                                margin: EdgeInsets.all(15),
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: NetworkImage(
+                                          "${e}",
+                                        ))),
+                              ),
+                            ),
+                          )
+                          .toList(),
                     ),
                   ),
                 ],

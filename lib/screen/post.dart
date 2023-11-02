@@ -14,18 +14,18 @@ class _postState extends State<post> {
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Qoutes"),
+        title: const Text("Qoutes"),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               "${data['categoryName']}",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 22,
               ),
             ),
@@ -37,33 +37,33 @@ class _postState extends State<post> {
                 child: Container(
                   height: 150,
                   width: 400,
-                  margin: EdgeInsets.all(10),
-                  padding: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
+                    color: Colors.blue,
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
                         "${e['img']}",
                       ),
                     ),
-                    color: Colors.red,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
-                        "${e["qoutes"]}",
-                        style: TextStyle(
-                          color: Colors.white,
+                        "${e["qoute"]}",
+                        style: const TextStyle(
+                          color: Colors.black,
                         ),
                       ),
                       Text(
                         " - ${e["author"]}",
-                        style: TextStyle(
-                          color: Colors.white,
+                        style: const TextStyle(
+                          color: Colors.black,
                         ),
                       ),
                     ],

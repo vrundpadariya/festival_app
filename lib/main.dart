@@ -10,8 +10,8 @@ void main() {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
       routes: {
-        's': (context) => splace(),
-        '/': (context) => homescreen(),
+        '/': (context) => splace(),
+        'h': (context) => homescreen(),
         'p': (context) => post(),
         'detail': (context) => const detailscreen(),
       },

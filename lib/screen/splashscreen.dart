@@ -23,7 +23,14 @@ class _splaceState extends State<splace> {
             child: Container(
               height: 300,
               width: 300,
-              color: Colors.red,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    "lib/utiles/assets/Untitled-1.gif",
+                  ),
+                ),
+              ),
             ),
           )
         ],
